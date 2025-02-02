@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+        {% block css %}{% endblock %}
+
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/icon_mcunha_eng.svg') }}">
+        <title>Página inicial</title>
+
+    </head>
+    <body>
+      <body>
+        <header>
+            <div class="container container-menu">
+
+                <input type="checkbox" id="drop" class="drop__button">
+                <label for="drop" class="drop">
+                    <span class="drop__menu-hamburguer drop__menu-image"></span>
+                </label>
+                <ul class="menu-list">
+                    <li class="menu-list__item">
+                        <a href="{{ url_for('index') }}" class="navigation-menu__link">Home</a>
+                    </li>
+                    <li class="menu-list__item">
+                        <a href="{{ url_for('admin_page') }}" class="navigation-menu__link">Admin</a>
+                    </li>
+                    <li class="menu-list__item">
+                        <a href="#" class="navigation-menu__link">Tutorial</a>
+                    </li>
+                    <li class="menu-list__item menu-list--session">
+                        <a href="" class="session-menu__link session-menu__link--login">Log in</a>
+                        <a href="" class="session-menu__link session-menu__link--register">Cadastre-se</a>
+                    </li>
+                </ul>
+
+                <nav class="navigation-menu">
+                    <a href="" class="navigation-menu__logo">
+                        <img src="{{ url_for('static', filename='img/logo_mcunha_eng.svg') }}" alt="Logo da OptimusTech">
+                    </a>
+                    <a href="{{ url_for('index') }}" class="navigation-menu__link">Home</a>
+                    <a href="{{ url_for('admin_page') }}" class="navigation-menu__link">Admin</a>
+                    <a href="" class="navigation-menu__link">Tutorial</a>
+                </nav>
+                <div class="session-menu">
+                    <a href="" class="session-menu__link session-menu__link--login">Log in</a>
+                    <a href="" class="session-menu__link session-menu__link--register">Cadastre-se</a>
+                </div>
+            </div>
+        </header>
+    
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+    </body>
+
+        <footer>
+            <div class="container">
+                <section class="section-box footer"> 
+                    <p class="footer__copyright">© 2025 MCunha Engenharia Mecânica. All rights reserved.</p>
+                </section>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <section class="section-home">
+            <h1 class="section-home__title">Faça o upload do arquivo</h1>
+            <div class="section-home__cards">
+
+                <div class="section-home__card">
+                    <img 
+                        src="{{ url_for('static', filename='img/zipIcon.svg') }}" 
+                        alt="ícone do arquivo zip"
+                    >
+                    <h1>Ordem de compra</h1>
+                    <p class="section-home__card-text">
+                        Clique aqui para enviar o .zip com a planilha.
+                    </p>
+                    
+                    <form id="upload-form" enctype="multipart/form-data">
+                    <input type="file" name="file" id="fileInput" required style="display: none;">
+                    <button type="button" class="section-home__home-button" onclick="uploadFile()">
+                        Enviar arquivo
+                        <img src="{{ url_for('static', filename='img/uploadIcon.svg') }}" alt="upload icon">
+                    </button>
+                    </form>
+                    <!-- Tela de carregamento --> 
+                    <div id="loading" style="display: none;">
+                        <p>Processando, por favor aguarde...</p>
+                    </div>
+                </div>
+                <div class="section-home__card">
+                    <img 
+                        src="{{ url_for('static', filename='img/pdfIcon.svg') }}" 
+                        alt="ícone do arquivo zip"
+                    >
+                    <h1>PDFs</h1>
+                    <p class="section-home__card-text">
+                        Clique aqui para enviar .pdf para plotagem de carimbo.
+                    </p>
+                    
+                    <form id="upload-form" enctype="multipart/form-data">
+                    <input type="file" name="file" id="fileInput" required style="display: none;">
+                    <button type="button" class="section-home__home-button" onclick="uploadFileProcessed()">
+                        Enviar arquivo
+                        <img src="{{ url_for('static', filename='img/uploadIcon.svg') }}" alt="upload icon">
+                    </button>
+                    </form>
+                    <!-- Tela de carregamento --> 
+                    <div id="loading" style="display: none;">
+                        <p>Processando, por favor aguarde...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../static/js/script.js"></script>
+{% endblock %}
+
+
+

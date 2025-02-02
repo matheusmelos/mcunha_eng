@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/downloadPage.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <section class="section-download">
+            <div class="section-download__left-arrow">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='img/leftArrow.svg') }}" alt="Voltar">
+                </a>
+            </div>
+            <h1 class="section-download__title">Dados disponíveis para download</h1>
+            <div class="section-download__card">
+                <img 
+                    src="{{ url_for('static', filename='img/zipIcon.svg') }}" 
+                    alt="ícone do arquivo zip"
+                >
+                <h1>.ZIP</h1>
+                <p class="section-download__card-text">
+                    Arquivos processados com sucesso.
+                </p>
+
+                <a class="section-download__download-button" href="{{ url_for('send_processed_file', filename=filename) }}">
+                    <img src="{{ url_for('static', filename='img/downloadIcon.svg') }}" alt="">
+                    Download 
+                </a>
+            </div>
+        </section>
+    </div>
+{% endblock %}

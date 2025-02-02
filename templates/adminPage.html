@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/adminPage.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <section class="section-admin">
+            <div class="section-admin__left-arrow">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='img/leftArrow.svg') }}" alt="Voltar">
+                </a>
+            </div>
+            <h1 class="section-admin__title">Redirecionamento para o dashboard</h1>
+            <div class="section-admin__card">
+                <img 
+                    src="{{ url_for('static', filename='img/chartIcon.svg') }}" 
+                    alt="ícone do arquivo zip"
+                >
+                <h1>Dashboard</h1>
+                <p class="section-admin__card-text">
+                    Clique aqui para ser redirecionado.
+                </p>
+                <button type="button" class="section-admin__admin-button" onclick="window.location.href='http://127.0.0.1:8050/';">
+                    Dashboard
+                </button>
+                
+            </div>
+        </section>
+    </div>
+    <script src="../static/js/script.js"></script>
+{% endblock %}
